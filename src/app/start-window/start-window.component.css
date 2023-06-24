@@ -1,0 +1,87 @@
+﻿.start-window {
+  width: 900px;
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+.start-window .geolocation, .start-window .manual {
+  width: 40%;
+  height: 100%;
+  background: #2e3138;
+  padding: 15px;
+}
+.start-window .geolocation .header, .start-window .manual .header {
+  height: 56px;
+  margin-top: 20px;
+  text-align: center;
+  color: #c4c4c4;
+}
+.start-window .geolocation .description, .start-window .manual .description {
+  margin-top: 20px;
+  height: 56px;
+  color: #c4c4c4;
+  text-align: center;
+}
+.start-window .geolocation .input-location, .start-window .geolocation .find-location, .start-window .manual .input-location, .start-window .manual .find-location {
+  margin-top: 40px;
+}
+.start-window .geolocation .input-location .form-elem, .start-window .geolocation .find-location .form-elem, .start-window .manual .input-location .form-elem, .start-window .manual .find-location .form-elem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.start-window .geolocation .input-location .form-elem .form-icon, .start-window .geolocation .find-location .form-elem .form-icon, .start-window .manual .input-location .form-elem .form-icon, .start-window .manual .find-location .form-elem .form-icon {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 36px;
+  background: white;
+  padding: 0 5px;
+  border-radius: 5px 0 0 5px;
+}
+.start-window .geolocation .input-location .form-elem .current-location, .start-window .geolocation .find-location .form-elem .current-location, .start-window .manual .input-location .form-elem .current-location, .start-window .manual .find-location .form-elem .current-location {
+  width: 250px;
+  height: 36px;
+  font-size: 16px;
+  border: none;
+  color: #202327;
+  border-radius: 0 5px 5px 0;
+}
+.start-window .geolocation .input-location .form-elem .current-location:focus-visible, .start-window .geolocation .find-location .form-elem .current-location:focus-visible, .start-window .manual .input-location .form-elem .current-location:focus-visible, .start-window .manual .find-location .form-elem .current-location:focus-visible {
+  outline: none;
+}
+.start-window .geolocation .find-location .form-elem, .start-window .manual .find-location .form-elem {
+  justify-content: space-around;
+}
+.start-window .geolocation .find-location .form-elem .close-form, .start-window .manual .find-location .form-elem .close-form {
+  display: flex;
+}
+.start-window .geolocation .find-location .form-elem .close-form .form-icon, .start-window .manual .find-location .form-elem .close-form .form-icon {
+  background: #c9c9c9;
+}
+.start-window .geolocation .find-location .form-elem .close-form .current-location[disabled], .start-window .manual .find-location .form-elem .close-form .current-location[disabled] {
+  width: 180px;
+  background: #c9c9c9;
+}
+.start-window .geolocation .find-location .form-elem .btn-geolocation button, .start-window .manual .find-location .form-elem .btn-geolocation button {
+  padding: 5px;
+}
+.start-window .geolocation .find-location .form-elem .btn-geolocation button:hover, .start-window .manual .find-location .form-elem .btn-geolocation button:hover {
+  cursor: pointer;
+}
+.start-window .geolocation .btn-continue, .start-window .manual .btn-continue {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.start-window .geolocation .btn-continue button, .start-window .manual .btn-continue button {
+  font-size: 16px;
+  padding: 10px;
+  background: #c4c4c4;
+  border: none;
+}
+.start-window .geolocation .btn-continue button:hover, .start-window .manual .btn-continue button:hover {
+  background: white;
+  cursor: pointer;
+}

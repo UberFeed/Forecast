@@ -2,5 +2,13 @@
   {
     "outputFile": "src/style.css",
     "inputFile": "src/style.scss"
+  },
+  {
+    "outputFile": "src/app/app.component.css",
+    "inputFile": "src/app/app.component.scss"
+  },
+  {
+    "outputFile": "src/app/start-window/start-window.component.css",
+    "inputFile": "src/app/start-window/start-window.component.scss"
   }
 ]
