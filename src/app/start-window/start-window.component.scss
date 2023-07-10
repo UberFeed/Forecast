@@ -26,6 +26,7 @@
 
     .input-location, .find-location {
       margin-top: 40px;
+      position: relative;
 
       .form-elem {
         position: relative;
@@ -44,17 +45,45 @@
         }
 
         .current-location {
-          width: 250px;
+          width: 280px;
           height: 36px;
           font-size: 16px;
           border: none;
           color: #202327;
           border-radius: 0 5px 5px 0;
+          padding: 0 5px;
 
           &:focus-visible {
             outline: none;
           }
         }
+      }
+
+      .dropdown-menu {
+        width: 308px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        max-height: 115.2px;
+        overflow-y: auto;
+        position: absolute;
+        left: 11px;
+
+        li {
+          padding: 5px;
+
+          &:hover {
+            background: lighten(#c4c4c4, 10%);
+          }
+        }
+      }
+
+      .contextClose {
+         display: none;
       }
     }
 
@@ -70,7 +99,7 @@
           }
 
           .current-location[disabled] {
-            width: 180px;
+            width: 190px;
             background: lighten(#c4c4c4, 2%);
           }
         }

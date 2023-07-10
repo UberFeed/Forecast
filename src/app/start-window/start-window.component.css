@@ -24,6 +24,7 @@
 }
 .start-window .geolocation .input-location, .start-window .geolocation .find-location, .start-window .manual .input-location, .start-window .manual .find-location {
   margin-top: 40px;
+  position: relative;
 }
 .start-window .geolocation .input-location .form-elem, .start-window .geolocation .find-location .form-elem, .start-window .manual .input-location .form-elem, .start-window .manual .find-location .form-elem {
   position: relative;
@@ -41,15 +42,39 @@
   border-radius: 5px 0 0 5px;
 }
 .start-window .geolocation .input-location .form-elem .current-location, .start-window .geolocation .find-location .form-elem .current-location, .start-window .manual .input-location .form-elem .current-location, .start-window .manual .find-location .form-elem .current-location {
-  width: 250px;
+  width: 280px;
   height: 36px;
   font-size: 16px;
   border: none;
   color: #202327;
   border-radius: 0 5px 5px 0;
+  padding: 0 5px;
 }
 .start-window .geolocation .input-location .form-elem .current-location:focus-visible, .start-window .geolocation .find-location .form-elem .current-location:focus-visible, .start-window .manual .input-location .form-elem .current-location:focus-visible, .start-window .manual .find-location .form-elem .current-location:focus-visible {
   outline: none;
+}
+.start-window .geolocation .input-location .dropdown-menu, .start-window .geolocation .find-location .dropdown-menu, .start-window .manual .input-location .dropdown-menu, .start-window .manual .find-location .dropdown-menu {
+  width: 308px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-height: 115.2px;
+  overflow-y: auto;
+  position: absolute;
+  left: 11px;
+}
+.start-window .geolocation .input-location .dropdown-menu li, .start-window .geolocation .find-location .dropdown-menu li, .start-window .manual .input-location .dropdown-menu li, .start-window .manual .find-location .dropdown-menu li {
+  padding: 5px;
+}
+.start-window .geolocation .input-location .dropdown-menu li:hover, .start-window .geolocation .find-location .dropdown-menu li:hover, .start-window .manual .input-location .dropdown-menu li:hover, .start-window .manual .find-location .dropdown-menu li:hover {
+  background: #dedede;
+}
+.start-window .geolocation .input-location .contextClose, .start-window .geolocation .find-location .contextClose, .start-window .manual .input-location .contextClose, .start-window .manual .find-location .contextClose {
+  display: none;
 }
 .start-window .geolocation .find-location .form-elem, .start-window .manual .find-location .form-elem {
   justify-content: space-around;
@@ -61,7 +86,7 @@
   background: #c9c9c9;
 }
 .start-window .geolocation .find-location .form-elem .close-form .current-location[disabled], .start-window .manual .find-location .form-elem .close-form .current-location[disabled] {
-  width: 180px;
+  width: 190px;
   background: #c9c9c9;
 }
 .start-window .geolocation .find-location .form-elem .btn-geolocation button, .start-window .manual .find-location .form-elem .btn-geolocation button {
