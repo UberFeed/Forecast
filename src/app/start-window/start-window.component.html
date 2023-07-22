@@ -22,7 +22,7 @@
           <input type="text" disabled class="current-location close-input" />
         </div>
         <div class="btn-geolocation">
-          <button class="auto-find">Опрделить</button>
+          <button class="auto-find" (click)="AutoFindLocation()">Опрделить</button>
         </div>
       </div>
     </div>
@@ -52,7 +52,11 @@
         <input type="text" id="input-field" class="current-location" placeholder="Страна, область, район" (keyup)="OpenContextValue()" [(ngModel)]="inputValue">
       </div>
       <ul class="dropdown-menu" [ngClass]="setting" (click)="SelectOption($event)">
-        <li>Опция 1</li>
+        <li *ngFor="let loc of Context">
+          <p>{{loc?.name}}</p>
+          <p>{{loc?.addres}}</p>
+          <p>{{loc?.place_formatted}}</p>
+        </li>
         <li>Опция 2</li>
         <li>Опция 3</li>
         <li>Опция 4</li>
@@ -65,3 +69,7 @@
     </div>
   </div>
 </div>
+
+
+
+

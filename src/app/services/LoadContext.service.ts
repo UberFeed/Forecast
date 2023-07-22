@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { LocationInfo } from '../start-window/LocationInfo';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,23 +12,18 @@ export class LoadContext {
     private http: HttpClient
   ) { }
 
-  apiKey: string = "AIzaSyAw1x2dJJ9ISlgKg9PHa6-TPc_or1sROcY";
+  apiKey: string = "pk.eyJ1IjoidWJlci1hbmRyIiwiYSI6ImNsazk0Y2NkbDAwN3MzZG1xa3Z1eXV5emQifQ.kJpye4JjAV1xetVwnOI9UQ";
 
-   ContextList(inputValue: string) {
-    const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${inputValue}&key=${this.apiKey}`;
+  ContextList(inputValue: string) {
+     const url = `https://api.mapbox.com/search/searchbox/v1/suggest?q=${inputValue}&language=en&session_token=060fcaaf-c11a-4341-8897-3bcdc1c0fe3f&access_token=${this.apiKey}`;
 
-     try {
-       const headers = new HttpHeaders({
-         'Access-Control-Allow-Origin': '*'
-       });
-
-       return this.http.get(url, { headers });
-     //const data =  response as JSON;
-     //  if (data.results.length > 0) {
-     //    // Получаем первый результат геокодирования
-     //    return address;
-     //  }
-     //  else throw new Error("Адрес не найден");
+    try {
+      return this.http.get(url).pipe(map((data: any) => {
+        let loc = data["suggestions"];
+        return loc.map(function (loc: any): LocationInfo {
+          return new LocationInfo(loc.name, loc.addres, loc.place_formatted);
+        });
+      }));
      }
      catch (error) {
        console.error("Ошибка геокодирования:", error);
