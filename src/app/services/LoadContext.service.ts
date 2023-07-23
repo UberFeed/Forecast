@@ -19,8 +19,8 @@ export class LoadContext {
 
     try {
       return this.http.get(url).pipe(map((data: any) => {
-        let loc = data["suggestions"];
-        return loc.map(function (loc: any): LocationInfo {
+        let location = data["suggestions"];
+        return location.map(function (loc: any): LocationInfo {
           return new LocationInfo(loc.name, loc.addres, loc.place_formatted);
         });
       }));

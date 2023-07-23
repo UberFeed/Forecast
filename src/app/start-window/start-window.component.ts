@@ -3,7 +3,6 @@ import { FindGeolocationService } from '../services/FindGeolocation.service';
 import { LoadContext } from '../services/LoadContext.service';
 import { LocationInfo } from './LocationInfo';
 
-
 @Component({
   selector: 'app-start-window',
   templateUrl: './start-window.component.html',
@@ -18,6 +17,7 @@ export class StartWindowComponent implements OnInit {
 
   inputValue: string = '';
   Context: LocationInfo[] = [];
+  Address: string = '';
 
   setting = {
     contextClose: true
@@ -52,13 +52,7 @@ export class StartWindowComponent implements OnInit {
         console.log('latitude - ' + latitude);
         console.log('longitude - ' + longitude);
 
-        this.FindGeolocation.reverseGeocode(latitude, longitude)
-          .then((address) => {
-            document.querySelector('.close-input')?.setAttribute('value', `${address}`);
-          })
-          .catch((error) => {
-            console.error("Ошибка:", error);
-          });
+        this.FindGeolocation.reverseGeocode(latitude, longitude).subscribe((data: any) => { this.Address = data });
       }
     );
   }
