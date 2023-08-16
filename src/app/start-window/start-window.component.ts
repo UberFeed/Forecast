@@ -2,6 +2,8 @@ import { Component, OnInit, AfterContentInit, NgModule, Input } from '@angular/c
 import { FindGeolocationService } from '../services/FindGeolocation.service';
 import { LoadContext } from '../services/LoadContext.service';
 import { LocationInfo } from './LocationInfo';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-start-window',
@@ -15,6 +17,8 @@ export class StartWindowComponent implements OnInit {
     public LoadContext: LoadContext
   ) { }
 
+  private searchTermChanged = new Subject<string>();
+
   inputValue: string = '';
   Context: LocationInfo[] = [];
   Address: string = '';
@@ -26,16 +30,27 @@ export class StartWindowComponent implements OnInit {
   input_location: Element = document.querySelector('.input-location')!;
 
   ngOnInit() {
+    this.searchTermChanged.pipe(debounceTime(1000)).subscribe((value) => {
+      this.OpenContextValue(value);
+    });
   }
 
-  OpenContextValue() {
-    if (this.inputValue.length >= 3) {
-      this.setting.contextClose = false;
-      this.LoadContext.ContextList(this.inputValue).subscribe(
-        { next: (data: LocationInfo[]) => this.Context = data }
-      );
-    }
-    else this.setting.contextClose = true;
+  onSearchTermChange() {
+    this.searchTermChanged.next(this.inputValue);
+  }
+
+  OpenContextValue(value: string) {
+    this.LoadContext.ContextList(value).subscribe(
+      { next: (data: LocationInfo[]) => this.Context = data }
+    );
+  }
+
+  OpenContextMenu() {
+    this.setting.contextClose = false;
+  }
+
+  CloseContextMenu() {
+    this.setting.contextClose = true;
   }
 
   SelectOption(event: any) {

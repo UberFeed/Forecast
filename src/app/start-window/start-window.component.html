@@ -43,25 +43,18 @@
       <p>Ручной выбор местоположения в случае если нужно узнать погоду в разных регионах.</p>
     </div>
     <div class="input-location">
-      <div class="form-elem">
+      <div class="form-elem" (clickOutside)="CloseContextMenu()">
         <div class="form-icon">
           <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 384 512">
             <path fill="#202327" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
           </svg>
         </div>
-        <input type="text" id="input-field" class="current-location" placeholder="Страна, область, район" (keyup)="OpenContextValue()" [(ngModel)]="inputValue">
+        <input type="text" id="input-field" class="current-location" placeholder="Страна, область, район" [(ngModel)]="inputValue" (focus)="OpenContextMenu()" (keyup)="onSearchTermChange()">
       </div>
       <ul class="dropdown-menu" [ngClass]="setting" (click)="SelectOption($event)">
         <li *ngFor="let loc of Context">
-          <p>{{loc?.name}}</p>
-          <p>{{loc?.addres}}</p>
-          <p>{{loc?.place_formatted}}</p>
+          <p>{{loc?.name}},<br /> {{loc?.place_formatted}}</p>
         </li>
-        <li>Опция 2</li>
-        <li>Опция 3</li>
-        <li>Опция 4</li>
-        <li>Опция 5</li>
-        <li>Опция 6</li>
       </ul>
     </div>
     <div class="btn-continue">

@@ -8,11 +8,13 @@ import { AppRoutigModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { StartWindowComponent } from './start-window/start-window.component';
+import { OutsideClickDirective } from './start-window/OutSideClick.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StartWindowComponent
+    StartWindowComponent,
+    OutsideClickDirective
   ],
   imports: [
     BrowserModule,
