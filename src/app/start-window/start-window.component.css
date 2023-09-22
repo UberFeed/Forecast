@@ -1,6 +1,6 @@
 ﻿.start-window {
   width: 900px;
-  height: 400px;
+  padding-top: 50px;
   display: flex;
   justify-content: space-around;
 }
@@ -9,6 +9,7 @@
   height: 100%;
   background: #2e3138;
   padding: 15px;
+  border-radius: 7px;
 }
 .start-window .geolocation .header, .start-window .manual .header {
   height: 56px;
@@ -109,4 +110,94 @@
 .start-window .geolocation .btn-continue button:hover, .start-window .manual .btn-continue button:hover {
   background: white;
   cursor: pointer;
+}
+
+.forecast {
+  margin-top: 50px;
+  width: 900px;
+  color: #c4c4c4;
+}
+.forecast .current-weather {
+  padding: 20px 30px;
+  border-radius: 7px;
+  background-color: #2e3138;
+}
+.forecast .current-weather .current-temp {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.forecast .current-weather .current-temp .temp-view {
+  font-size: 58px;
+  display: flex;
+  margin-left: 10px;
+}
+.forecast .current-weather .current-temp .temp-view .metric {
+  font-size: 30px;
+  line-height: 1.8;
+}
+.forecast .current-weather .current-temp .feels-like {
+  margin-left: 20px;
+}
+.forecast .current-weather .forecast-description {
+  margin-top: 10px;
+}
+.forecast .current-weather .forecast-info {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.five-day_forecast {
+  margin-top: 10px;
+  margin-bottom: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #c4c4c4;
+}
+.five-day_forecast .widget {
+  width: 147px;
+  height: 108px;
+  background: #2e3138;
+  border-radius: 7px;
+}
+.five-day_forecast .today_forecast {
+  width: 280px;
+  display: flex;
+}
+.five-day_forecast .today_forecast .week_day {
+  margin-bottom: 10px;
+}
+.five-day_forecast .today_forecast .main-info {
+  padding: 12px 37px 18px 28px;
+  width: 147px;
+}
+.five-day_forecast .today_forecast .main-info .forecast_min-max {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+.five-day_forecast .today_forecast .additional-info {
+  padding: 12px 37px 18px 28px;
+  display: flex;
+  align-self: center;
+}
+.five-day_forecast .optional_forecast .week_day {
+  margin-bottom: 10px;
+}
+.five-day_forecast .optional_forecast .main-info {
+  padding: 12px 37px 18px 28px;
+  width: 147px;
+}
+.five-day_forecast .optional_forecast .main-info .forecast_min-max {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+.five-day_forecast .optional_forecast .additional-info {
+  padding: 12px 37px 18px 28px;
+  display: flex;
+  align-self: center;
+  display: none;
 }
