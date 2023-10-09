@@ -10,5 +10,13 @@
   {
     "outputFile": "src/app/start-window/start-window.component.css",
     "inputFile": "src/app/start-window/start-window.component.scss"
+  },
+  {
+    "outputFile": "src/app/line-chart/line-chart.component.css",
+    "inputFile": "src/app/line-chart/line-chart.component.scss"
+  },
+  {
+    "outputFile": "src/app/line-chart/custom-tooltip/custom-tooltip.component.css",
+    "inputFile": "src/app/line-chart/custom-tooltip/custom-tooltip.component.scss"
   }
 ]
