@@ -2,7 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import * as Highcharts from 'highcharts';
-import { Dictionary } from 'highcharts/highcharts.src';
+import { SeriesWindbarbOptions, PlotWindbarbOptions } from 'highcharts';
+import { Dictionary, chart } from 'highcharts/highcharts.src';
 
 //import Annotation from 'chartjs-plugin-annotation';
 
@@ -13,172 +14,8 @@ import { Dictionary } from 'highcharts/highcharts.src';
 })
 export class LineChartComponent {
 
-  Meteogram: Dictionary<object> = {
-    clearsky: {
-      symbol: '01',
-      text: 'Clear sky'
-    },
-    fair: {
-      symbol: '02',
-      text: 'Fair'
-    },
-    partlycloudy: {
-      symbol: '03',
-      text: 'Partly cloudy'
-    },
-    cloudy: {
-      symbol: '04',
-      text: 'Cloudy'
-    },
-    lightrainshowers: {
-      symbol: '40',
-      text: 'Light rain showers'
-    },
-    rainshowers: {
-      symbol: '05',
-      text: 'Rain showers'
-    },
-    heavyrainshowers: {
-      symbol: '41',
-      text: 'Heavy rain showers'
-    },
-    lightrainshowersandthunder: {
-      symbol: '24',
-      text: 'Light rain showers and thunder'
-    },
-    rainshowersandthunder: {
-      symbol: '06',
-      text: 'Rain showers and thunder'
-    },
-    heavyrainshowersandthunder: {
-      symbol: '25',
-      text: 'Heavy rain showers and thunder'
-    },
-    lightsleetshowers: {
-      symbol: '42',
-      text: 'Light sleet showers'
-    },
-    sleetshowers: {
-      symbol: '07',
-      text: 'Sleet showers'
-    },
-    heavysleetshowers: {
-      symbol: '43',
-      text: 'Heavy sleet showers'
-    },
-    lightsleetshowersandthunder: {
-      symbol: '26',
-      text: 'Light sleet showers and thunder'
-    },
-    sleetshowersandthunder: {
-      symbol: '20',
-      text: 'Sleet showers and thunder'
-    },
-    heavysleetshowersandthunder: {
-      symbol: '27',
-      text: 'Heavy sleet showers and thunder'
-    },
-    lightsnowshowers: {
-      symbol: '44',
-      text: 'Light snow showers'
-    },
-    snowshowers: {
-      symbol: '08',
-      text: 'Snow showers'
-    },
-    heavysnowshowers: {
-      symbol: '45',
-      text: 'Heavy show showers'
-    },
-    lightsnowshowersandthunder: {
-      symbol: '28',
-      text: 'Light snow showers and thunder'
-    },
-    snowshowersandthunder: {
-      symbol: '21',
-      text: 'Snow showers and thunder'
-    },
-    heavysnowshowersandthunder: {
-      symbol: '29',
-      text: 'Heavy snow showers and thunder'
-    },
-    lightrain: {
-      symbol: '46',
-      text: 'Light rain'
-    },
-    rain: {
-      symbol: '09',
-      text: 'Rain'
-    },
-    heavyrain: {
-      symbol: '10',
-      text: 'Heavy rain'
-    },
-    lightrainandthunder: {
-      symbol: '30',
-      text: 'Light rain and thunder'
-    },
-    rainandthunder: {
-      symbol: '22',
-      text: 'Rain and thunder'
-    },
-    heavyrainandthunder: {
-      symbol: '11',
-      text: 'Heavy rain and thunder'
-    },
-    lightsleet: {
-      symbol: '47',
-      text: 'Light sleet'
-    },
-    sleet: {
-      symbol: '12',
-      text: 'Sleet'
-    },
-    heavysleet: {
-      symbol: '48',
-      text: 'Heavy sleet'
-    },
-    lightsleetandthunder: {
-      symbol: '31',
-      text: 'Light sleet and thunder'
-    },
-    sleetandthunder: {
-      symbol: '23',
-      text: 'Sleet and thunder'
-    },
-    heavysleetandthunder: {
-      symbol: '32',
-      text: 'Heavy sleet and thunder'
-    },
-    lightsnow: {
-      symbol: '49',
-      text: 'Light snow'
-    },
-    snow: {
-      symbol: '13',
-      text: 'Snow'
-    },
-    heavysnow: {
-      symbol: '50',
-      text: 'Heavy snow'
-    },
-    lightsnowandthunder: {
-      symbol: '33',
-      text: 'Light snow and thunder'
-    },
-    snowandthunder: {
-      symbol: '14',
-      text: 'Snow and thunder'
-    },
-    heavysnowandthunder: {
-      symbol: '34',
-      text: 'Heavy snow and thunder'
-    },
-    fog: {
-      symbol: '15',
-      text: 'Fog'
-    }
-  }
+  public codeSymbol: string[] = ['04d', '04n', '02d', '03d', '01d', '10d', '11d', '13d'];
+  public windAngle: number[] = [159, 181, 188, 188, 194, 139, 122, 237]
 
   Highcharts: typeof Highcharts = Highcharts; // required
   chartConstructor: string = 'chart'; // optional string, defaults to 'chart'
@@ -188,56 +25,243 @@ export class LineChartComponent {
         color: '#2e3138'
       }
     },
-    series: [{
-      data: [1, 2, 3],
-      type: 'spline',
-      color: '#c4c4c4',
-      borderColor: '#c4c4c4',
-      showInLegend: false
-    }],
+    series: [
+      { //temperature
+        data: [12, 11, 12, 19, 22, 22, 15, 13],
+        type: 'spline',
+        color: '#c4c4c4',
+        borderColor: '#c4c4c4',
+        showInLegend: false,
+      },
+      { // Precipitation
+        name: 'Precipitation',
+        data: [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+        type: 'column',
+        color: '#68CFE8',
+        yAxis: 1,
+        groupPadding: 0,
+        pointPadding: 0,
+        showInLegend: false,
+        grouping: false,
+        dataLabels: {
+          enabled: true,
+          filter: {
+            operator: '>',
+            property: 'y',
+            value: 0
+          },
+          style: {
+            fontSize: '8px',
+            color: '#666'
+          }
+        },
+        tooltip: {
+          valueSuffix: ' mm'
+        }
+      },
+      { //pressure
+        name: 'Air pressure',
+        color: 'green',
+        type: 'spline',
+        data: [1100, 1000, 1100, 1000, 1100, 1000],
+        showInLegend: false,
+        dataLabels: {
+          enabled: false
+        },
+        marker: {
+          enabled: false
+        },
+        shadow: false,
+        tooltip: {
+          valueSuffix: ' hPa'
+        },
+        dashStyle: 'Dash',
+        yAxis: 2
+      },
+      { //wind
+        name: 'Wind',
+        type: 'windbarb',
+        //id: 'windbabrs',
+        color: '#c4c4c4',
+        lineWidth: 1.5,
+        data: [],
+        vectorLength: 18,
+        yOffset: -15,
+        tooltip: {
+          valueSuffix: ' m/s'
+        }
+      }
+    ],
     title: {
       text: '',
     },
     xAxis: {
       tickColor: '#c4c4c4',
       lineColor: '#c4c4c4',
+      type: 'datetime',
+      gridLineWidth: 1,
+      gridLineColor: 'rgba(128, 128, 128, 0.1)',
+      startOnTick: false,
+      endOnTick: false,
+      minPadding: 0,
+      maxPadding: 0,
+      offset: 30,
+      showLastLabel: true,
+      crosshair: true,
       labels: {
         style: {
           color: '#c4c4c4'
         }
       },
+      categories: ['0:00', '3:00', '6:00', '9:00', '12:00', '15:00', '18:00', '21:00'],
     },
-    yAxis: {
-      lineColor: 'red',
-      gridLineColor: '',
-      title: {
-        text: ''
+    yAxis: [
+      { // temperature axis
+        lineColor: 'red',
+        gridLineColor: '',
+        title: {
+          text: ''
+        },
+        labels: {
+          style: {
+            color: '#c4c4c4'
+          },
+          format: '{value}°'
+        },
       },
-      labels: {
-        style: {
-          color: '#c4c4c4'
-        }
+      { // precipitation axis
+        title: {
+          text: null
+        },
+        labels: {
+          enabled: false
+        },
+        gridLineWidth: 0,
+        tickLength: 0,
+        minRange: 10,
+        min: 0
+
+      },
+      { // Air pressure
+        allowDecimals: false,
+        tickInterval: 50,
+        title: { // Title on top of axis
+          text: '',//'hPa',
+          offset: 0,
+          align: 'high',
+          rotation: 0,
+          style: {
+            fontSize: '10px',
+            color: '#c4c4c4'
+          },
+          textAlign: 'left',
+          x: 3
+        },
+        labels: {
+          style: {
+            fontSize: '8px',
+            color: 'green'
+          },
+          y: 2,
+          x: 3
+        },
+        gridLineWidth: 0,
+        opposite: true,
+        showLastLabel: true,        
       }
-    },
+    ],
     plotOptions: {
       line: {
         dataLabels: {
           enabled: true,
-          color: '#2e3138'
+          color: '#2e3138',
         },
         enableMouseTracking: false
       },
+      spline: {
+        dataLabels: {
+          enabled: true,
+          y: 25,
+        },
+        enableMouseTracking: false
+      }
     },
     chart: {
       backgroundColor: '#2e3138',
       spacingBottom: 40,
       spacingLeft: 40,
       spacingTop: 40,
-      spacingRight: 40
+      spacingRight: 40,
     },
   }; // required
 
-  chartCallback: Highcharts.ChartCallbackFunction = function (chart) {  } // optional function, defaults to null
+  chartCallback: Highcharts.ChartCallbackFunction = (chart) => {
+    chart.series[0].data.forEach((point: any, i: any) => {
+      chart.renderer.image(`https://openweathermap.org/img/wn/${this.codeSymbol[i]}@2x.png`,
+        point.plotX + chart.plotLeft - 15,
+        point.plotY + chart.plotTop - 30,
+        30,
+        30
+      ).attr({ zIndex: 5 }).add();
+      i++;
+    });
+
+    chart.xAxis[0].categories.forEach((point: any, i: any) => {
+      const xPixel = chart.xAxis[0].toPixels(i, true);
+      const windDeg = this.windAngle[i];
+      //chart.renderer.image(`./assets/img/noun-north-2296240.svg`,
+      //  xPixel + 60,
+      //  chart.plotTop + chart.plotHeight + 4,
+      //  30,
+      //  30,
+      //).addClass('windbars').add();  //attr({ zIndex: 5 }).add();
+      i++;
+    });
+
+    let temp = document.querySelectorAll('.windbars');
+
+    temp.forEach((item: any, index: any) => {
+      item.style.transform = `rotate(${this.windAngle[index]}deg)`;
+      item.style.transformOrigin = '';
+      index++;
+    })
+      
+
+    //const xAxis = chart.xAxis[0];
+
+    //for (
+    //  let pos = xAxis.min, max = xAxis.max, i = 0;
+    //  pos! <= max! + 36e5; pos! += 36e5,
+    //  i += 1
+    //) { 
+
+    //  // Get the X position
+    //  const isLast = pos === max! + 36e5,
+    //    x = Math.round(xAxis.toPixels(pos!, true)) + (isLast ? 0.5 : -0.5);
+
+    //  chart.renderer.image(`https://openweathermap.org/img/wn/${this.codeSymbol[i]}@2x.png`,
+    //    chart.plotTop + chart.plotHeight,
+    //    chart.plotTop + chart.plotHeight + 32,
+    //  //  30,
+    //  //  30
+    //  )
+    //    //.path([
+    //    //  'M', x, chart.plotTop + chart.plotHeight,
+    //    //  'L', x, chart.plotTop + chart.plotHeight + 32,
+    //    //  'Z'
+    //    //])
+    //    .attr({
+    //      //stroke: chart.options.chart.plotBorderColor,
+    //      'stroke-width': 1
+    //    })
+    //    .add();
+    //}
+
+    // Center items in block
+  //  chart.get('windbarbs')?.options    .markerGroup.attr({
+  //    translateX: chart.get('windbarbs').markerGroup.translateX + 8
+  //  });
+  }
   updateFlag: boolean = false; // optional boolean
   oneToOneFlag: boolean = true; // optional boolean, defaults to false
   runOutsideAngular: boolean = false;
