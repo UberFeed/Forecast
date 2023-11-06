@@ -196,7 +196,31 @@
     border-radius: 7px;
   }
 
-  .today_forecast {
+  .optional_forecast {
+    .week_day {
+      margin-bottom: 10px;
+    }
+
+    .main-info {
+      padding: 12px 37px 18px 28px;
+      width: 147px;
+
+      .forecast_min-max {
+        display: flex;
+        align-content: center;
+        justify-content: space-around;
+      }
+    }
+
+    .additional-info {
+      padding: 12px 37px 18px 28px;
+      display: flex;
+      align-self: center;
+      display: none;
+    }
+  }
+
+  .widget_active {
     width: 280px;
     display: flex;
 
@@ -219,30 +243,6 @@
       padding: 12px 37px 18px 28px;
       display: flex;
       align-self: center;
-    }
-  }
-
-  .optional_forecast {
-    .week_day {
-      margin-bottom: 10px;
-    }
-
-    .main-info {
-      padding: 12px 37px 18px 28px;
-      width: 147px;
-
-      .forecast_min-max {
-        display: flex;
-        align-content: center;
-        justify-content: space-around;
-      }
-    }
-
-    .additional-info {
-      padding: 12px 37px 18px 28px;
-      display: flex;
-      align-self: center;
-      display: none;
     }
   }
 }

@@ -112,7 +112,7 @@
 </div>
 
 <div class="five-day_forecast">
-  <div class="today_forecast widget">
+  <div (click)="toggleActive($event, 0)" class="optional_forecast widget widget_active">
     <div class="main-info">
       <div class="week_day">Сегодня</div>
       <div class="forecast_min-max">
@@ -137,7 +137,7 @@
     </div>
   </div>
 
-  <div class="optional_forecast widget">
+  <div (click)="toggleActive($event, 1)" class="optional_forecast widget">
     <div class="main-info">
       <div class="week_day">Среда</div>
       <div class="forecast_min-max">
@@ -162,7 +162,7 @@
     </div>
   </div>
 
-  <div class="optional_forecast widget">
+  <div (click)="toggleActive($event, 2)" class="optional_forecast widget">
     <div class="main-info">
       <div class="week_day">Четверг</div>
       <div class="forecast_min-max">
@@ -187,7 +187,7 @@
     </div>
   </div>
 
-  <div class="optional_forecast widget">
+  <div (click)="toggleActive($event, 3)" class="optional_forecast widget">
     <div class="main-info">
       <div class="week_day">Пятница</div>
       <div class="forecast_min-max">
@@ -212,7 +212,7 @@
     </div>
   </div>
 
-  <div class="optional_forecast widget">
+  <div (click)="toggleActive($event, 4)" class="optional_forecast widget">
     <div class="main-info">
       <div class="week_day">Суббота</div>
       <div class="forecast_min-max">

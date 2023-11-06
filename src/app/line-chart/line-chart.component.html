@@ -1,19 +1,12 @@
-<!--<div class="chart">-->
-  <!--<canvas baseChart
-          class="chart"
-          [data]="lineChartData"
-          [options]="lineChartOptions"
-          [type]="lineChartType"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)">
-  </canvas>-->
-<!--</div>-->
-<highcharts-chart [Highcharts]="Highcharts"
+<highcharts-chart #customChart [Highcharts]="Highcharts"
                   [constructorType]="chartConstructor"
                   [options]="chartOptions"
                   [callbackFunction]="chartCallback"
                   [(update)]="updateFlag"
                   [oneToOne]="oneToOneFlag"
                   [runOutsideAngular]="runOutsideAngular"
-                  style="width: 100%; height: 400px; display: block; margin-bottom: 200px; padding-bottom: 20px;">
+                  style="width: auto; height: 100%; display: block; margin-bottom: 200px; padding-bottom: 20px;">
 </highcharts-chart>
+<!--<button (click)="scrollChart()">
+  Прокрутить
+</button>-->

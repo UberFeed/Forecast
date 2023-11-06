@@ -35,6 +35,15 @@ export class StartWindowComponent implements OnInit {
     });
   }
 
+  toggleActive(element: any, id: any) {
+    console.log('click');
+    const activeElement = document.querySelector('.widget_active')!;
+    if (!(element.currentTarget == activeElement)) {
+      activeElement.classList.remove('widget_active');
+      element.currentTarget.classList.add('widget_active');
+    }
+  }
+
   onSearchTermChange() {
     this.searchTermChanged.next(this.inputValue);
   }
