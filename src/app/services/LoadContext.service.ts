@@ -15,13 +15,22 @@ export class LoadContext {
   apiKey: string = "pk.eyJ1IjoidWJlci1hbmRyIiwiYSI6ImNsazk0Y2NkbDAwN3MzZG1xa3Z1eXV5emQifQ.kJpye4JjAV1xetVwnOI9UQ";
 
   ContextList(inputValue: string) {
-     const url = `https://api.mapbox.com/search/searchbox/v1/suggest?q=${inputValue}&language=en&session_token=060fcaaf-c11a-4341-8897-3bcdc1c0fe3f&access_token=${this.apiKey}`;
+    //const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${inputValue}.json?&language=ru&access_token=${this.apiKey}`;
+    const url = 'assets/example/Context.json';
 
     try {
       return this.http.get(url).pipe(map((data: any) => {
-        let location = data["suggestions"];
+        let location = data["features"];
         return location.map(function (loc: any): LocationInfo {
-          return new LocationInfo(loc.name, loc.addres, loc.place_formatted);
+          let address = '';
+          for (let i = 0; i < loc.context.length; i++) {
+            if (i == 0) {
+              address += loc.context[i].text;
+            }
+            else 
+              address += `, ${loc.context[i].text}`;
+          }
+          return new LocationInfo(loc.text, address, loc.geometry.coordinates[0], loc.geometry.coordinates[1]);
         });
       }));
      }

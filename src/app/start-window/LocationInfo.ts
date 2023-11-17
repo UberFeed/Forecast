@@ -2,7 +2,8 @@
 export class LocationInfo {
   constructor(
     public name: string,
-    public addres: string,
-    public place_formatted: string,
+    public address: string,
+    public lat: number,
+    public lon: number
   ) { }
 }

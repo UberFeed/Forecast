@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgChartsModule } from 'ng2-charts';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutigModule } from './app-routing.module';
 
@@ -31,7 +32,7 @@ import { CustomTooltipComponent } from './line-chart/custom-tooltip/custom-toolt
     NgChartsModule,
     HighchartsChartModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 

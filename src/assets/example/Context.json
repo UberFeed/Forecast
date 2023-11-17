@@ -1,0 +1,210 @@
+{
+  "type": "FeatureCollection",
+  "query": [ "бровари" ],
+  "features": [
+    {
+      "id": "place.16271593",
+      "type": "Feature",
+      "place_type": [ "place" ],
+      "relevance": 1,
+      "properties": {
+        "mapbox_id": "dXJuOm1ieHBsYzorRWpw",
+        "wikidata": "Q841026"
+      },
+      "text": "Бровари",
+      "place_name": "Бровари, Kyiv Oblast, Ukraine",
+      "bbox": [ 30.7378941, 50.4822737, 30.8652875, 50.5368879 ],
+      "center": [ 30.79, 50.5111 ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 30.79, 50.5111 ]
+      },
+      "context": [
+        {
+          "id": "region.74985",
+          "mapbox_id": "dXJuOm1ieHBsYzpBU1Rw",
+          "wikidata": "Q170036",
+          "short_code": "UA-32",
+          "text": "Kyiv Oblast"
+        },
+        {
+          "id": "country.8937",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdWs",
+          "wikidata": "Q212",
+          "short_code": "ua",
+          "text": "Ukraine"
+        }
+      ]
+    },
+    {
+      "id": "poi.944892826003",
+      "type": "Feature",
+      "place_type": [ "poi" ],
+      "relevance": 0.928571,
+      "properties": {
+        "foursquare": "4b6dcb2df964a52073902ce3",
+        "landmark": true,
+        "address": "вул. Київська, 314",
+        "category": "bar, alcohol",
+        "maki": "bar"
+      },
+      "text": "Бровар Хоф",
+      "place_name": "Бровар Хоф, вул. Київська, 314, Бровари, Kyiv Oblast 074, Ukraine",
+      "center": [ 30.793005, 50.526022 ],
+      "geometry": {
+        "coordinates": [ 30.793005, 50.526022 ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.1175273",
+          "mapbox_id": "dXJuOm1ieHBsYzpFZTdw",
+          "text": "074"
+        },
+        {
+          "id": "place.16271593",
+          "mapbox_id": "dXJuOm1ieHBsYzorRWpw",
+          "wikidata": "Q841026",
+          "text": "Бровари"
+        },
+        {
+          "id": "region.74985",
+          "mapbox_id": "dXJuOm1ieHBsYzpBU1Rw",
+          "wikidata": "Q170036",
+          "short_code": "UA-32",
+          "text": "Kyiv Oblast"
+        },
+        {
+          "id": "country.8937",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdWs",
+          "wikidata": "Q212",
+          "short_code": "ua",
+          "text": "Ukraine"
+        }
+      ]
+    },
+    {
+      "id": "poi.601295442719",
+      "type": "Feature",
+      "place_type": [ "poi" ],
+      "relevance": 0.928571,
+      "properties": {
+        "foursquare": "5384a0a2498e510111ec9e9f",
+        "landmark": true,
+        "address": "Улица Киевская",
+        "category": "advertising agency, advertising, marketing, office"
+      },
+      "text": "Бровары Реклама",
+      "place_name": "Бровары Реклама, Улица Киевская, Бровари, Kyiv Oblast 074, Ukraine",
+      "center": [ 30.776752, 50.506134 ],
+      "geometry": {
+        "coordinates": [ 30.776752, 50.506134 ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.1175273",
+          "mapbox_id": "dXJuOm1ieHBsYzpFZTdw",
+          "text": "074"
+        },
+        {
+          "id": "place.16271593",
+          "mapbox_id": "dXJuOm1ieHBsYzorRWpw",
+          "wikidata": "Q841026",
+          "text": "Бровари"
+        },
+        {
+          "id": "region.74985",
+          "mapbox_id": "dXJuOm1ieHBsYzpBU1Rw",
+          "wikidata": "Q170036",
+          "short_code": "UA-32",
+          "text": "Kyiv Oblast"
+        },
+        {
+          "id": "country.8937",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdWs",
+          "wikidata": "Q212",
+          "short_code": "ua",
+          "text": "Ukraine"
+        }
+      ]
+    },
+    {
+      "id": "poi.292057803234",
+      "type": "Feature",
+      "place_type": [ "poi" ],
+      "relevance": 0.928571,
+      "properties": {
+        "foursquare": "4fc79009e4b081ac0cdc8344",
+        "landmark": true,
+        "category": "auto repair, car repair, body shop, shop"
+      },
+      "text": "Бровары-авто",
+      "place_name": "Бровары-авто, Бровари, Kyiv Oblast 074, Ukraine",
+      "center": [ 30.847139, 50.511139 ],
+      "geometry": {
+        "coordinates": [ 30.847139, 50.511139 ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.1175273",
+          "mapbox_id": "dXJuOm1ieHBsYzpFZTdw",
+          "text": "074"
+        },
+        {
+          "id": "place.16271593",
+          "mapbox_id": "dXJuOm1ieHBsYzorRWpw",
+          "wikidata": "Q841026",
+          "text": "Бровари"
+        },
+        {
+          "id": "region.74985",
+          "mapbox_id": "dXJuOm1ieHBsYzpBU1Rw",
+          "wikidata": "Q170036",
+          "short_code": "UA-32",
+          "text": "Kyiv Oblast"
+        },
+        {
+          "id": "country.8937",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdWs",
+          "wikidata": "Q212",
+          "short_code": "ua",
+          "text": "Ukraine"
+        }
+      ]
+    },
+    {
+      "id": "place.16296169",
+      "type": "Feature",
+      "place_type": [ "place" ],
+      "relevance": 0.928571,
+      "properties": { "mapbox_id": "dXJuOm1ieHBsYzorS2pw" },
+      "text": "Броварки",
+      "place_name": "Броварки, Cherkasy Oblast, Ukraine",
+      "bbox": [ 31.7855913, 49.905682, 31.806901, 49.921116 ],
+      "center": [ 31.7944, 49.9109 ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 31.7944, 49.9109 ]
+      },
+      "context": [
+        {
+          "id": "region.9449",
+          "mapbox_id": "dXJuOm1ieHBsYzpKT2s",
+          "wikidata": "Q161808",
+          "short_code": "UA-71",
+          "text": "Cherkasy Oblast"
+        },
+        {
+          "id": "country.8937",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdWs",
+          "wikidata": "Q212",
+          "short_code": "ua",
+          "text": "Ukraine"
+        }
+      ]
+    }
+  ],
+  "attribution": "NOTICE: © 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+}

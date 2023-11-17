@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
 Highcharts.setOptions({
   lang: {
@@ -22,6 +22,9 @@ Highcharts.setOptions({
   styleUrls: ['./line-chart.component.css'],
 })
 export class LineChartComponent {
+
+  @Input()
+  FiveDayTemp: any[] = [];
 
   @ViewChild('customChart')
   customChart?: ElementRef;
