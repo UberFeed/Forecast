@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { StartWindowComponent } from './start-window/start-window.component';
 import { OutsideClickDirective } from './start-window/OutSideClick.directive';
 import { LineChartComponent } from './line-chart/line-chart.component';
-import { CustomTooltipComponent } from './line-chart/custom-tooltip/custom-tooltip.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { CustomTooltipComponent } from './line-chart/custom-tooltip/custom-toolt
     StartWindowComponent,
     OutsideClickDirective,
     LineChartComponent,
-    CustomTooltipComponent
   ],
   imports: [
     BrowserModule,

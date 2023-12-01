@@ -10,14 +10,14 @@ export class FindGeolocationService {
     private http: HttpClient
   ) { }
 
-  apiKey: string = "AIzaSyBi8pUqMJSGrqLaXjmiy3Vq6UHdY3KgNiw";
+  apiKey: string = "pk.eyJ1IjoidWJlci1hbmRyIiwiYSI6ImNsazk0Y2NkbDAwN3MzZG1xa3Z1eXV5emQifQ.kJpye4JjAV1xetVwnOI9UQ";
 
   reverseGeocode(latitude: number, longitude: number) {
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${this.apiKey}`;
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?&language=ru&access_token=${this.apiKey}`;
 
     try {
       return this.http.get(url).pipe(map((data: any) => {
-        return data.results[0].formatted_address;
+        return data.features[0].place_name;
       }));
     }
     catch (error) {

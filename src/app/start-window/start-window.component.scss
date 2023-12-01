@@ -1,116 +1,175 @@
 .start-window {
   width: 900px;
-  //height: 400px;
   padding-top: 50px;
-  display: flex;
-  justify-content: space-around;
 
-  .geolocation, .manual {
-    width: 40%;
-    height: 100%;
-    background: #2e3138;
-    padding: 15px;
-    border-radius: 7px;
-
-    .header {
-      height: 56px;
-      margin-top: 20px;
-      text-align: center;
+  .search_tab, .result_tab {
+    .search_header, .result_header {
+      display: flex;
+      background-color: rgba(46, 49, 56, 0.5);
+      width: 100%;
+      padding: 15px 20px;
       color: #c4c4c4;
-    }
+      font-size: 16px;
+      border-radius: 5px;
+      justify-content: space-between;
+      cursor: pointer;
 
-    .description {
-      margin-top: 20px;
-      height: 56px;
-      color: #c4c4c4;
-      text-align: center;
-    }
+      &:hover {
+        background-color: rgba(46, 49, 56, 0.8);
+        transition: ease-in all .3s;
+      }
 
-    .input-location, .find-location {
-      margin-top: 40px;
-      position: relative;
-
-      .form-elem {
-        position: relative;
+      .header_description {
         display: flex;
-        justify-content: center;
-        align-items: center;
 
-        .form-icon {
-          display: flex;
-          align-items: center;
-          width: auto;
-          height: 36px;
-          background: white;
-          padding: 0 5px;
-          border-radius: 5px 0 0 5px;
-        }
-
-        .current-location {
-          width: 280px;
-          height: 36px;
-          font-size: 16px;
-          border: none;
-          color: #202327;
-          border-radius: 0 5px 5px 0;
-          padding: 0 5px;
-
-          &:focus-visible {
-            outline: none;
-          }
+        span {
+          margin-left: 8px;
         }
       }
 
-      .dropdown-menu {
-        width: 308px;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        max-height: 115.2px;
-        overflow-y: auto;
-        position: absolute;
-        left: 11px;
-
-        li {
-          padding: 5px;
-
-          &:hover {
-            background: lighten(#c4c4c4, 10%);
-          }
-        }
-      }
-
-      .contextClose {
-        display: none;
+      .header_arrowdown {
+        display: flex;
+        align-self: flex-end;
       }
     }
 
-    .find-location {
-      .form-elem {
-        justify-content: space-around;
+    .search_body {
+      height: 500px;
+      box-sizing: border-box;
+      //padding: 40px 0;
+      display: flex;
+      justify-content: space-around;
+      transition: ease-in all .5s;
+      overflow: hidden;
 
-        .close-form {
-          display: flex;
+      .geolocation, .manual {
+        margin: 40px 0;
+        width: 40%;
+        height: 420px;
+        background: #2e3138;
+        padding: 15px;
+        border-radius: 7px;
 
-          .form-icon {
-            background: lighten(#c4c4c4, 2%);
+        .header {
+          height: 56px;
+          margin-top: 20px;
+          text-align: center;
+          color: #c4c4c4;
+        }
+
+        .description {
+          margin-top: 20px;
+          height: 56px;
+          color: #c4c4c4;
+          text-align: center;
+        }
+
+        .input-location, .find-location {
+          margin-top: 40px;
+          position: relative;
+
+          .form-elem {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .form-icon {
+              display: flex;
+              align-items: center;
+              width: auto;
+              height: 36px;
+              background: white;
+              padding: 0 5px;
+              border-radius: 5px 0 0 5px;
+            }
+
+            .current-location {
+              width: 280px;
+              height: 36px;
+              font-size: 16px;
+              border: none;
+              color: #202327;
+              border-radius: 0 5px 5px 0;
+              padding: 0 5px;
+
+              &:focus-visible {
+                outline: none;
+              }
+            }
           }
 
-          .current-location[disabled] {
-            width: 190px;
-            background: lighten(#c4c4c4, 2%);
+          .dropdown-menu {
+            width: 308px;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            max-height: 115.2px;
+            overflow-y: auto;
+            position: absolute;
+            left: 11px;
+
+            li {
+              padding: 5px;
+
+              &:hover {
+                background: lighten(#c4c4c4, 10%);
+              }
+            }
+          }
+
+          .contextClose {
+            display: none;
           }
         }
 
-        .btn-geolocation {
+        .find-location {
+          .form-elem {
+            justify-content: space-around;
+
+            .close-form {
+              display: flex;
+
+              .form-icon {
+                background: lighten(#c4c4c4, 2%);
+              }
+
+              .current-location[disabled] {
+                width: 190px;
+                background: lighten(#c4c4c4, 2%);
+              }
+            }
+
+            .btn-geolocation {
+              button {
+                padding: 5px;
+
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+
+        .btn-continue {
+          margin-top: 50px;
+          display: flex;
+          justify-content: center;
+
           button {
-            padding: 5px;
+            font-size: 16px;
+            padding: 10px;
+            background: #c4c4c4;
+            border: none;
+            border-radius: 15px;
 
             &:hover {
+              background: white;
               cursor: pointer;
             }
           }
@@ -118,131 +177,146 @@
       }
     }
 
-    .btn-continue {
-      margin-top: 50px;
-      display: flex;
-      justify-content: center;
-
-      button {
-        font-size: 16px;
-        padding: 10px;
-        background: #c4c4c4;
-        border: none;
-
-        &:hover {
-          background: white;
-          cursor: pointer;
-        }
-      }
+    .searchTabClose {
+      height: 0;
+      //padding: 0;
     }
   }
 }
 
-.forecast {
-  margin-top: 50px;
-  width: 900px;
-  color: #c4c4c4;
-
-  .current-weather {
-    padding: 20px 30px;
-    border-radius: 7px;
-    background-color: #2e3138;
-
-    .current-temp {
-      margin-top: 20px;
-      display: flex;
-      align-items: center;
-
-      .temp-view {
-        font-size: 58px;
-        display: flex;
-        margin-left: 10px;
-
-        .metric {
-          font-size: 30px;
-          line-height: 1.8;
-        }
-      }
-
-      .feels-like {
-        margin-left: 20px;
-      }
-    }
-
-    .forecast-description {
-      margin-top: 10px;
-    }
-
-    .forecast-info{
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-    }
-  }
-}
-
-.five-day_forecast {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  color: #c4c4c4;
-
-  .widget {
-    width: 147px;
-    height: 108px;
-    background: #2e3138;
-    border-radius: 7px;
-  }
-
-  .optional_forecast {
-    .week_day {
-      margin-bottom: 10px;
-    }
-
-    .main-info {
-      padding: 12px 37px 18px 28px;
-      width: 147px;
-
-      .forecast_min-max {
-        display: flex;
-        align-content: center;
-        justify-content: space-around;
-      }
-    }
-
-    .additional-info {
-      padding: 12px 37px 18px 28px;
-      display: flex;
-      align-self: center;
-      display: none;
-    }
-  }
-
-  .widget_active {
-    width: 280px;
+.result_tab {
+  .result_header {
     display: flex;
+    background-color: rgba(46, 49, 56, 0.5);
+    padding: 15px 20px;
+    color: #c4c4c4;
+    font-size: 16px;
+    border-radius: 5px;
 
-    .week_day {
-      margin-bottom: 10px;
+    span {
+      margin-left: 8px;
     }
+  }
 
-    .main-info {
-      padding: 12px 37px 18px 28px;
-      width: 147px;
+  .result_body {
+    overflow: hidden;
+    transition: ease-in all .5s;
+    height: 850px;
+    .forecast {
+      margin-top: 40px;
+      width: 900px;
+      color: #c4c4c4;
 
-      .forecast_min-max {
-        display: flex;
-        align-content: center;
-        justify-content: space-around;
+      .current-weather {
+        padding: 20px 30px;
+        border-radius: 7px;
+        background-color: #2e3138;
+
+        .current-temp {
+          margin-top: 20px;
+          display: flex;
+          align-items: center;
+
+          .temp-view {
+            font-size: 58px;
+            display: flex;
+            margin-left: 10px;
+
+            .metric {
+              font-size: 30px;
+              line-height: 1.8;
+            }
+          }
+
+          .feels-like {
+            margin-left: 20px;
+          }
+        }
+
+        .forecast-description {
+          margin-top: 10px;
+        }
+
+        .forecast-info {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+        }
       }
     }
 
-    .additional-info {
-      padding: 12px 37px 18px 28px;
+    .five-day_forecast {
+      margin: 10px 0;
+      width: 100%;
       display: flex;
-      align-self: center;
+      justify-content: space-between;
+      color: #c4c4c4;
+      cursor: pointer;
+      .widget {
+        width: 147px;
+        height: 108px;
+        background: #2e3138;
+        border-radius: 7px;
+      }
+
+      .optional_forecast {
+        .week_day {
+          margin-bottom: 10px;
+        }
+
+        .main-info {
+          padding: 12px 37px 18px 28px;
+          width: 147px;
+
+          .forecast_min-max {
+            display: flex;
+            align-content: center;
+            justify-content: space-around;
+          }
+        }
+
+        .additional-info {
+          padding: 12px 37px 18px 28px;
+          display: flex;
+          align-self: center;
+          display: none;
+        }
+      }
+
+      .widget_active {
+        width: 280px;
+        display: flex;
+
+        .week_day {
+          margin-bottom: 10px;
+        }
+
+        .main-info {
+          padding: 12px 37px 18px 28px;
+          width: 147px;
+
+          .forecast_min-max {
+            display: flex;
+            align-content: center;
+            justify-content: space-around;
+          }
+        }
+
+        .additional-info {
+          padding: 12px 37px 18px 28px;
+          display: flex;
+          align-self: center;
+        }
+      }
     }
   }
+
+  .resultTabClose {
+    height: 0;
+  }
+}
+
+.resultTabVisible {
+    overflow: hidden;
+    height: 0;
 }

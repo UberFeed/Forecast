@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentInit, NgModule, Input } from '@angular/core';
+import { Component, OnInit, AfterContentInit, NgModule, Output } from '@angular/core';
 import { FindGeolocationService } from '../services/FindGeolocation.service';
 import { LoadContext } from '../services/LoadContext.service';
 import { Load5DayForecast } from '../services/Load5DayForecast.service';
@@ -26,23 +26,37 @@ export class StartWindowComponent implements OnInit {
 
   private searchTermChanged = new Subject<string>();
 
+  @Output()
+  currentDay: number = 0;
+
   inputValue: string = '';
   Context: LocationInfo[] = [];
   Address: string = '';
   lat!: number;
   lon!: number;
-  temp?: any;
-  temp1: any;
-  temp2: any[] = [];
-  temp3: string[] = [];
+  FiveDayForecast?: any;
+  CurrentDayWeather: any;
+  DayliForecast: any[] = [];
+  NumberOfWeek: string[] = [];
   FiveDayArray: FiveDayForecast[] = [];
   DayOfWeek: string[] = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-  HourlyTemp: number[] = [];
-  //FiveDayArray: any[] = [];
+  
 
   setting = {
-    contextClose: true
+    contextClose: true,
   };
+
+  SearchTab = {
+    searchTabClose: false,
+  }
+
+  ResultBody = {
+    resultTabClose: true,
+  }
+
+  ResultTab = {
+    resultTabVisible: true,
+  }
 
   isActive(index: number): string {
     return index === 0 ? 'widget_active' : '';
@@ -62,6 +76,7 @@ export class StartWindowComponent implements OnInit {
     if (!(element.currentTarget == activeElement)) {
       activeElement.classList.remove('widget_active');
       element.currentTarget.classList.add('widget_active');
+      this.currentDay = id;
     }
   }
 
@@ -83,78 +98,44 @@ export class StartWindowComponent implements OnInit {
     this.setting.contextClose = true;
   }
 
+  ToggleSearchTab() {
+    this.SearchTab.searchTabClose = !this.SearchTab.searchTabClose;
+  }
+
+  ToggleResultTab() {
+    this.ResultBody.resultTabClose = !this.ResultBody.resultTabClose;
+  }
+
   SelectOption(selectedOp: any) {
     this.inputValue = `${selectedOp.name} ${selectedOp.address}`;
     this.lat = selectedOp.lat;
     this.lon = selectedOp.lon;
     this.setting.contextClose = true;
+    console.log(this.lat, this.lon);
   }
 
-  manualFindLocation() {
+  FindLocation() {
     this.Load5DayForecast.FiveDayForecast(this.lat, this.lon).subscribe(
       (data: any) => {
-        this.temp = data;
-        data.forEach()
-
-
-        //this.FiveDayArray.push(data[0]);
-        //  data.forEach((item: any) => {
-        //    let unixTime = item.dt;
-        //    if (new Date(unixTime * 1000).getHours().toString() == '0') {
-        //      if (item !== data[0] && this.FiveDayArray.length < 4) {
-        //        this.FiveDayArray.push(item);
-        //      }
-        //    }
-        //  })
-        //let Currentday = this.datePipe.transform(data[0].dt * 1000, 'd');
-        //let TempList: number[] = [];
-        //let pressure: any[] = [];
-        //let presipitation: any[] = [];
-        //let minTemp;
-        //let maxTemp;
-        //let WeekDays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-        //let DayofWeek: string;
-        //for (let i = 0; i < data.length; i++) {
-        //  let dayOfMounth = this.datePipe.transform(data[i].dt * 1000, 'd');
-        //  if (Currentday == dayOfMounth) {
-        //    TempList.push(data[i].main.temp);
-        //    pressure.push(data[i].main.pressure);
-        //    presipitation.push(data[i].pop);
-        //    if (i === data.length - 1) {
-        //      DayofWeek = WeekDays[new Date(data[i].dt * 1000).getDay()]
-        //      minTemp = Math.min.apply(null, TempList);
-        //      maxTemp = Math.max.apply(null, TempList);
-        //      this.FiveDayArray.push(new FiveDayForecast(TempList, pressure, presipitation, maxTemp, minTemp, DayofWeek));
-        //    }
-        //  }
-        //  else {
-        //    DayofWeek = WeekDays[(new Date(data[i - 1].dt * 1000).getDay())]
-        //    Currentday = dayOfMounth;
-        //    minTemp = Math.min.apply(null, TempList);
-        //    maxTemp = Math.max.apply(null, TempList);
-        //    this.FiveDayArray.push(new FiveDayForecast(TempList, pressure, presipitation, maxTemp, minTemp, DayofWeek));
-        //    TempList = [];
-        //    pressure = [];
-        //    presipitation = [];
-        //    TempList.push(data[i].main.temp);
-        //    pressure.push(data[i].main.pressure);
-        //    presipitation.push(data[i].pop);
-        //  }
-        //}
-        console.log(this.temp);
+        this.FiveDayForecast = data;
+        //console.log(this.temp);
       }
     )
     this.LoadCurrentWeather.CurrentWeather(this.lat, this.lon).subscribe(
       (data: any) => {
-        this.temp1 = data.current;
-        console.log(this.temp1);
+        this.CurrentDayWeather = data.current;
+        this.DayliForecast = [];
+        this.NumberOfWeek = [];
+        /*console.log(this.temp1);*/
         for (var i = 0; i < 5; i++) {
-          this.temp3.push(this.DayOfWeek[new Date(data.daily[i].dt * 1000).getDay()]);
-          this.temp2.push(data.daily[i]);
+          this.NumberOfWeek.push(this.DayOfWeek[new Date(data.daily[i].dt * 1000).getDay()]);
+          this.DayliForecast.push(data.daily[i]);
         }
-        console.log(this.temp1, this.temp2);
+        //console.log(this.temp1, this.temp2);
       }
     )
+    this.ResultTab.resultTabVisible = false;
+    this.ResultBody.resultTabClose = false;
   }
 
   AutoFindLocation() {
@@ -167,6 +148,9 @@ export class StartWindowComponent implements OnInit {
         console.log('longitude - ' + longitude);
 
         this.FindGeolocation.reverseGeocode(latitude, longitude).subscribe((data: any) => { this.Address = data });
+        this.lat = latitude;
+        this.lon = longitude;
+        console.log(this.lat, this.lon);
       }
     );
   }
