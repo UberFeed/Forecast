@@ -15,8 +15,8 @@ export class LoadContext {
   apiKey: string = "pk.eyJ1IjoidWJlci1hbmRyIiwiYSI6ImNsazk0Y2NkbDAwN3MzZG1xa3Z1eXV5emQifQ.kJpye4JjAV1xetVwnOI9UQ";
 
   ContextList(inputValue: string) {
-    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${inputValue}.json?&language=ru&access_token=${this.apiKey}`;
-    //const url = 'assets/example/Context.json';
+    //const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${inputValue}.json?&language=ru&access_token=${this.apiKey}`;
+    const url = 'assets/example/Context.json';
 
     try {
       return this.http.get(url).pipe(map((data: any) => {

@@ -351,7 +351,7 @@ export class LineChartComponent implements OnChanges {
     //chart.redraw(true);
     // Добавление погодных изображений
     chart.series[0].data.forEach((point: any, i: any) => {
-      let chartImg = chart.renderer.image(`https://openweathermap.org/img/wn/${this.codeSymbol[i]}@2x.png`,
+      let chartImg = chart.renderer.image(`assets/weather-icon/${this.codeSymbol[i]}@2x.png`,
         point.plotX + chart.plotLeft - 15,
         point.plotY + chart.plotTop - 30,
         30,

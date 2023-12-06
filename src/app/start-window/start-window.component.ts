@@ -40,6 +40,7 @@ export class StartWindowComponent implements OnInit {
   NumberOfWeek: string[] = [];
   FiveDayArray: FiveDayForecast[] = [];
   DayOfWeek: string[] = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  CurrentTime!: any;
   
 
   setting = {
@@ -106,6 +107,10 @@ export class StartWindowComponent implements OnInit {
     this.ResultBody.resultTabClose = !this.ResultBody.resultTabClose;
   }
 
+  SetCurrentTime() {
+    this.CurrentTime = new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Kyiv' })
+  }
+
   SelectOption(selectedOp: any) {
     this.inputValue = `${selectedOp.name} ${selectedOp.address}`;
     this.lat = selectedOp.lat;
@@ -115,6 +120,7 @@ export class StartWindowComponent implements OnInit {
   }
 
   FindLocation() {
+    this.SetCurrentTime();
     this.Load5DayForecast.FiveDayForecast(this.lat, this.lon).subscribe(
       (data: any) => {
         this.FiveDayForecast = data;

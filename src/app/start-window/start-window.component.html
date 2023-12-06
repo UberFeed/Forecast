@@ -114,10 +114,10 @@
         <div class="current-weather">
           <div class="last_viewed">
             <p>Последнее обновление данных</p>
-            <p>14:59 | 18.09.2023</p>
+            <p>{{ CurrentTime }}</p>
           </div>
           <div class="current-temp">
-            <div class="current-icon" style="background-image: url('https://openweathermap.org/img/wn/{{ CurrentDayWeather.weather[0].icon }}@2x.png'); background-size: 80px 80px; background-position: center; width: 50px; height: 50px;">
+            <div class="current-icon" style="background-image: url('assets/weather-icon/{{ CurrentDayWeather.weather[0].icon }}@2x.png'); background-size: 80px 80px; background-position: center; width: 60px; height: 60px;">
             </div>
             <span class="temp-view">{{ CurrentDayWeather?.temp | number: '1.0-0' }}<span class="metric">°C</span></span>
             <span class="feels-like">{{ CurrentDayWeather.weather[0].description }}<br /><span>Ощущается {{ CurrentDayWeather?.feels_like | number: '1.0-0' }}<span class="metric">°</span></span></span>
@@ -156,20 +156,22 @@
 
       <div class="five-day_forecast">
         <div *ngFor="let item of DayliForecast; let i = index;" (click)="toggleActive($event, i)" class="optional_forecast widget" [ngClass]="isActive(i)">
-          <div class="main-info">
-            <div class="week_day">{{ NumberOfWeek[i] }}</div>
-            <div class="forecast_min-max">
-              <div class="forecast_icon" style="background-image: url('https://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png'); background-size: 50px 50px; background-position: center; width: 40px; height: 40px;">
-              </div>
-              <div class="forecast_value">
-                <p>{{ item.temp.max | number: '1.0-0' }}<span class="metric">°</span></p>
-                <p>{{ item.temp.min | number: '1.0-0' }}<span class="metric">°</span></p>
+          <div class="week_day">{{ NumberOfWeek[i] }}</div>
+          <div class="info">
+            <div class="main-info">
+              <div class="forecast_min-max">
+                <div class="forecast_icon" style="background-image: url('assets/weather-icon/{{ item.weather[0].icon }}@2x.png'); background-size: 50px 50px; background-position: center; width: 50px; height: 50px; ">
+                </div>
+                <div class="forecast_value">
+                  <p>{{ item.temp.max | number: '1.0-0' }}<span class="metric">°</span></p>
+                  <p>{{ item.temp.min | number: '1.0-0' }}<span class="metric">°</span></p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="additional-info">
-            <div class="description">
-              <p>{{ item.weather[0].description }}</p>
+            <div class="additional-info">
+              <div class="description">
+                {{ item.weather[0].description }}
+              </div>
             </div>
           </div>
         </div>
@@ -177,7 +179,7 @@
       <app-line-chart [FiveDayTemp]="FiveDayForecast" [CurrentDay]="currentDay"></app-line-chart>
     </div>
   </div>
-</div> 
+</div>
 
 
 

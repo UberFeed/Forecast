@@ -202,6 +202,7 @@
     overflow: hidden;
     transition: ease-in all .5s;
     height: 850px;
+
     .forecast {
       margin-top: 40px;
       width: 900px;
@@ -252,6 +253,7 @@
       justify-content: space-between;
       color: #c4c4c4;
       cursor: pointer;
+
       .widget {
         width: 147px;
         height: 108px;
@@ -261,51 +263,69 @@
 
       .optional_forecast {
         .week_day {
-          margin-bottom: 10px;
+          //margin-bottom: 10px;
+          padding: 14px 0 0 28px;
         }
 
-        .main-info {
-          padding: 12px 37px 18px 28px;
-          width: 147px;
+        .info {
+          .main-info {
+            padding: 12px 37px 18px 28px;
+            width: 147px;
 
-          .forecast_min-max {
-            display: flex;
-            align-content: center;
-            justify-content: space-around;
+            .forecast_min-max {
+              display: flex;
+              align-content: center;
+              justify-content: space-around;
+
+              .forecast_value {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+              }
+            }
           }
-        }
 
-        .additional-info {
-          padding: 12px 37px 18px 28px;
-          display: flex;
-          align-self: center;
-          display: none;
+          .additional-info {
+            //padding: 12px 37px 18px 28px;
+            display: flex;
+            align-self: center;
+            display: none;
+          }
         }
       }
 
       .widget_active {
         width: 280px;
-        display: flex;
 
-        .week_day {
-          margin-bottom: 10px;
-        }
-
-        .main-info {
-          padding: 12px 37px 18px 28px;
-          width: 147px;
-
-          .forecast_min-max {
-            display: flex;
-            align-content: center;
-            justify-content: space-around;
-          }
-        }
-
-        .additional-info {
-          padding: 12px 37px 18px 28px;
+        .info {
           display: flex;
-          align-self: center;
+
+          .week_day {
+            margin-bottom: 10px;
+          }
+
+          .main-info {
+            padding: 12px 37px 18px 28px;
+            width: 147px;
+
+            .forecast_min-max {
+              display: flex;
+              align-content: center;
+              justify-content: space-around;
+            }
+          }
+
+          .additional-info {
+            padding: 12px 37px 18px 28px;
+            display: flex;
+            align-self: center;
+
+            .description {
+              &:first-letter {
+                text-transform: uppercase;
+              }
+            }
+          }
         }
       }
     }
@@ -317,6 +337,6 @@
 }
 
 .resultTabVisible {
-    overflow: hidden;
-    height: 0;
+  overflow: hidden;
+  height: 0;
 }

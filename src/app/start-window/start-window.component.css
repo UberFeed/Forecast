@@ -214,43 +214,52 @@
   border-radius: 7px;
 }
 .result_tab .result_body .five-day_forecast .optional_forecast .week_day {
-  margin-bottom: 10px;
+  padding: 14px 0 0 28px;
 }
-.result_tab .result_body .five-day_forecast .optional_forecast .main-info {
+.result_tab .result_body .five-day_forecast .optional_forecast .info .main-info {
   padding: 12px 37px 18px 28px;
   width: 147px;
 }
-.result_tab .result_body .five-day_forecast .optional_forecast .main-info .forecast_min-max {
+.result_tab .result_body .five-day_forecast .optional_forecast .info .main-info .forecast_min-max {
   display: flex;
   align-content: center;
   justify-content: space-around;
 }
-.result_tab .result_body .five-day_forecast .optional_forecast .additional-info {
-  padding: 12px 37px 18px 28px;
+.result_tab .result_body .five-day_forecast .optional_forecast .info .main-info .forecast_min-max .forecast_value {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.result_tab .result_body .five-day_forecast .optional_forecast .info .additional-info {
   display: flex;
   align-self: center;
   display: none;
 }
 .result_tab .result_body .five-day_forecast .widget_active {
   width: 280px;
+}
+.result_tab .result_body .five-day_forecast .widget_active .info {
   display: flex;
 }
-.result_tab .result_body .five-day_forecast .widget_active .week_day {
+.result_tab .result_body .five-day_forecast .widget_active .info .week_day {
   margin-bottom: 10px;
 }
-.result_tab .result_body .five-day_forecast .widget_active .main-info {
+.result_tab .result_body .five-day_forecast .widget_active .info .main-info {
   padding: 12px 37px 18px 28px;
   width: 147px;
 }
-.result_tab .result_body .five-day_forecast .widget_active .main-info .forecast_min-max {
+.result_tab .result_body .five-day_forecast .widget_active .info .main-info .forecast_min-max {
   display: flex;
   align-content: center;
   justify-content: space-around;
 }
-.result_tab .result_body .five-day_forecast .widget_active .additional-info {
+.result_tab .result_body .five-day_forecast .widget_active .info .additional-info {
   padding: 12px 37px 18px 28px;
   display: flex;
   align-self: center;
+}
+.result_tab .result_body .five-day_forecast .widget_active .info .additional-info .description:first-letter {
+  text-transform: uppercase;
 }
 .result_tab .resultTabClose {
   height: 0;

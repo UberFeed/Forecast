@@ -15,8 +15,8 @@ export class CurrentWeatherForecast {
   apiKey: string = "40294c2298fd6841ee09d8d782edeb40";
 
   CurrentWeather(lat: number, lon: number) {
-    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=hourly&units=metric&lang=ru&appid=${this.apiKey}`;
-    //const url = 'assets/example/onecall.json';
+    //const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=hourly&units=metric&lang=ru&appid=${this.apiKey}`;
+    const url = 'assets/example/onecall.json';
 
     try {
       return this.http.get(url).pipe(map((data: any) => {
