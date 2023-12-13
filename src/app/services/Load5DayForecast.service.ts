@@ -15,8 +15,8 @@ export class Load5DayForecast {
   apiKey: string = "40294c2298fd6841ee09d8d782edeb40";
 
   FiveDayForecast(lat: number, lon: number) {
-    // const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=${this.apiKey}`;
-    const url = 'assets/example/forecast.json';
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=${this.apiKey}`;
+    //const url = 'assets/example/forecast.json';
     //const url1 = 'assets/example/onecall.json';
 
     try {
