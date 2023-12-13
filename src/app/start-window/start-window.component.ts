@@ -119,6 +119,22 @@ export class StartWindowComponent implements OnInit {
     console.log(this.lat, this.lon);
   }
 
+  ScrollToEnd() {
+    console.log('click');
+    document.querySelector('.five-day_wrapper')?.scrollTo({
+      left: 500,
+      behavior: 'smooth'
+    })
+  }
+
+  ScrollToStart() {
+    console.log('click');
+    document.querySelector('.five-day_wrapper')?.scrollTo({
+      left: -300,
+      behavior: 'smooth'
+    })
+  }
+
   FindLocation() {
     this.SetCurrentTime();
     this.Load5DayForecast.FiveDayForecast(this.lat, this.lon).subscribe(

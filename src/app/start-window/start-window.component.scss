@@ -1,12 +1,17 @@
 .start-window {
-  width: 900px;
+  max-width: 900px;
+  min-width: 500px;
   padding-top: 50px;
 
   .search_tab, .result_tab {
     .search_header, .result_header {
+      width: 100vw;
+      max-width: 900px;
+      min-width: 600px;
+      margin: 0 auto;
       display: flex;
       background-color: rgba(46, 49, 56, 0.5);
-      width: 100%;
+      max-width: 900px;
       padding: 15px 20px;
       color: #c4c4c4;
       font-size: 16px;
@@ -34,6 +39,9 @@
     }
 
     .search_body {
+      width: 100vw;
+      max-width: 900px;
+      min-width: 600px;
       height: 500px;
       box-sizing: border-box;
       //padding: 40px 0;
@@ -41,10 +49,11 @@
       justify-content: space-around;
       transition: ease-in all .5s;
       overflow: hidden;
+      margin: 0 auto;
 
       .geolocation, .manual {
         margin: 40px 0;
-        width: 40%;
+        width: 360px;
         height: 420px;
         background: #2e3138;
         padding: 15px;
@@ -178,7 +187,7 @@
     }
 
     .searchTabClose {
-      height: 0;
+      height: 0 !important;
       //padding: 0;
     }
   }
@@ -202,43 +211,49 @@
     overflow: hidden;
     transition: ease-in all .5s;
     height: 850px;
+    padding-top: 40px;
 
     .forecast {
-      margin-top: 40px;
-      width: 900px;
+      //margin-top: 40px;
+      width: 100vw;
+      max-width: 900px;
+      min-width: 630px;
       color: #c4c4c4;
+      margin: 0 auto;
 
       .current-weather {
         padding: 20px 30px;
         border-radius: 7px;
         background-color: #2e3138;
 
-        .current-temp {
-          margin-top: 20px;
-          display: flex;
-          align-items: center;
-
-          .temp-view {
-            font-size: 58px;
+        .forecast-main_info {
+          .current-temp {
+            margin-top: 20px;
             display: flex;
-            margin-left: 10px;
+            align-items: center;
 
-            .metric {
-              font-size: 30px;
-              line-height: 1.8;
+            .temp-view {
+              font-size: 58px;
+              display: flex;
+              margin-left: 10px;
+
+              .metric {
+                font-size: 30px;
+                line-height: 1.8;
+              }
+            }
+
+            .feels-like {
+              margin-left: 20px;
             }
           }
 
-          .feels-like {
-            margin-left: 20px;
+          .forecast-description {
+            margin-top: 10px;
           }
         }
 
-        .forecast-description {
-          margin-top: 10px;
-        }
-
-        .forecast-info {
+        .forecast-add_info {
           margin-top: 20px;
           display: flex;
           justify-content: space-between;
@@ -247,86 +262,99 @@
     }
 
     .five-day_forecast {
-      margin: 10px 0;
+      margin: 10px auto;
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      color: #c4c4c4;
-      cursor: pointer;
+      position: relative;
+      width: 100vw;
+      max-width: 900px;
+      min-width: 600px;
 
-      .widget {
-        width: 147px;
-        height: 108px;
-        background: #2e3138;
-        border-radius: 7px;
-      }
 
-      .optional_forecast {
-        .week_day {
-          //margin-bottom: 10px;
-          padding: 14px 0 0 28px;
+      .five-day_wrapper {
+        display: flex;
+        justify-content: space-between;
+        color: #c4c4c4;
+        cursor: pointer;
+        margin: 0 auto;
+
+        .widget {
+          width: 147px;
+          height: 108px;
+          background: #2e3138;
+          border-radius: 7px;
         }
 
-        .info {
-          .main-info {
-            padding: 12px 37px 18px 28px;
-            width: 147px;
+        .optional_forecast {
+          .week_day {
+            //margin-bottom: 10px;
+            padding: 14px 0 0 28px;
+          }
 
-            .forecast_min-max {
-              display: flex;
-              align-content: center;
-              justify-content: space-around;
+          .info {
+            .main-info {
+              padding: 12px 37px 18px 28px;
+              width: 147px;
 
-              .forecast_value {
+              .forecast_min-max {
                 display: flex;
-                flex-direction: column;
+                align-content: center;
+                justify-content: space-around;
+
+                .forecast_value {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-around;
+                }
+              }
+            }
+
+            .additional-info {
+              //padding: 12px 37px 18px 28px;
+              display: flex;
+              align-self: center;
+              display: none;
+            }
+          }
+        }
+
+        .widget_active {
+          width: 299px;
+          flex-shrink: 0;
+          .info {
+            display: flex;
+
+            .week_day {
+              margin-bottom: 10px;
+            }
+
+            .main-info {
+              padding: 12px 37px 18px 28px;
+              width: 147px;
+
+              .forecast_min-max {
+                display: flex;
+                align-content: center;
                 justify-content: space-around;
               }
             }
-          }
 
-          .additional-info {
-            //padding: 12px 37px 18px 28px;
-            display: flex;
-            align-self: center;
-            display: none;
-          }
-        }
-      }
-
-      .widget_active {
-        width: 280px;
-
-        .info {
-          display: flex;
-
-          .week_day {
-            margin-bottom: 10px;
-          }
-
-          .main-info {
-            padding: 12px 37px 18px 28px;
-            width: 147px;
-
-            .forecast_min-max {
+            .additional-info {
+              padding: 12px 37px 18px 28px;
               display: flex;
-              align-content: center;
-              justify-content: space-around;
-            }
-          }
+              align-self: center;
 
-          .additional-info {
-            padding: 12px 37px 18px 28px;
-            display: flex;
-            align-self: center;
-
-            .description {
-              &:first-letter {
-                text-transform: uppercase;
+              .description {
+                &:first-letter {
+                  text-transform: uppercase;
+                }
               }
             }
           }
         }
+      }
+
+      .five-day_arrow{
+          display: none;
       }
     }
   }
@@ -339,4 +367,109 @@
 .resultTabVisible {
   overflow: hidden;
   height: 0;
+}
+
+@media(max-width: 900px) {
+  .start-window {
+    .result_tab {
+      .result_body {
+        .forecast {
+          .current-weather {
+            display: flex;
+            justify-content: space-between;
+
+            .forecast-add_info {
+              display: flex;
+              flex-wrap: wrap;
+              width: 280px;
+
+              div {
+                width: 132px;
+              }
+            }
+          }
+        }
+
+        .five-day_forecast {
+          display: flex;
+
+          .five-day_wrapper {
+            width: 755px;
+            overflow: hidden;
+            margin: 0 auto;
+
+            .widget {
+              margin-right: 5px;
+
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+
+          .five-day_arrow {
+            position: absolute;
+            height: 100%;
+            display: flex;
+
+            &:hover {
+              background-color: rgba(196, 196, 196, 0.05);
+            }
+
+            svg {
+              align-self: center;
+            }
+          }
+
+          .right-arrow {
+            right: 3%;
+          }
+
+          .left-arrow {
+            left: 3%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 730px) {
+  .start-window {
+    .search_tab, .result_tab {
+      .search_body {
+        height: 950px;
+        flex-direction: column;
+        align-items: center;
+
+        .geolocation, .manual {
+          margin: 0;
+          margin-top: 40px;
+        }
+      }
+    }
+
+    .result_tab {
+      .result_body {
+        .forecast {
+          .current-weather {
+            justify-content: space-between;
+
+            .forecast-add_info {
+              display: flex;
+              flex-wrap: wrap;
+              width: 280px;
+              margin: 0;
+            }
+          }
+        }
+
+        .five-day_forecast {
+          .five-day_wrapper {
+            width: 603px !important;
+          }
+        }
+      }
+    }
+  }
 }
